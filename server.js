@@ -1,8 +1,7 @@
 const express = require("express");
 const path = require("path");
 
-// add path to line 5
-const indexData = require("./db/db.json")
+const indexData = require("./route/index.js")
 const PORT = 3001;
 const app = express();
 
