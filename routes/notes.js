@@ -3,7 +3,7 @@ const uuid = require("../helpers/uuid");
 const { readFromFile, writeToFile, readAndAppend } = require("../helpers/fsUtils");
 
 notes.get ("/", (req, res) =>
-    readFromFile("./db/db.json").then((data) =>
+    readFromFile("./db/db.json").then((data) => 
         res.json(JSON.parse(data)))
 );
 notes.post("/", (req, res) => {
@@ -25,3 +25,4 @@ notes.post("/", (req, res) => {
     }
 });
 
+module.exports = notes;
