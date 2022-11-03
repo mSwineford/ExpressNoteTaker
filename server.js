@@ -10,18 +10,18 @@ const app = express();
 app.use(express.static("public"));
 app.use(express.urlencoded({ extend: true }));
 app.use(express.json());
-app.use("./api", api);
+app.use("/api", api);
 
-app.get("./notes", (req, res) => {
-    res.sendFile(path.join(__dirname, "./public/notes.html"))
+app.get("/notes", (req, res) => {
+    res.sendFile(path.join(__dirname, "/public/notes.html"))
 });
 app.get("*", (req, res) => 
-    res.sendFile(path.join(__dirname, "./public/index.html"))
+    res.sendFile(path.join(__dirname, "/public/index.html"))
 );
-app.get("./api/notes", (req, res) => {
-    res.sendFile(path.join(__dirname, "./db/db.json"))
+app.get("/api/notes", (req, res) => {
+    res.sendFile(path.join(__dirname, "/db/db.json"))
 });
-app.post("./api/notes", (req, res) => {
+app.post("/api/notes", (req, res) => {
     console.info(`${req.method} request to save recieved`)
     const { title, text } = req.body;
     if (title && text) {
